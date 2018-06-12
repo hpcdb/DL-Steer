@@ -2,10 +2,10 @@ from dl-steer import dt_handler, custom_model
 
 #1. Load input data and list L of combinations of hyperparameters
 
-data = dt_handler.read_dataset_info('MNIST')
+data = dt_handler.read_dataset('input_data.csv')
 
 
-engine_interface.add_blocks_to_queue('arquivo.json')
+engine_interface.add_blocks_to_queue('hyperparameter_values.json')
 
 model = Sequential()
 

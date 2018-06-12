@@ -1,10 +1,8 @@
 from dl-steer import dt_handler, custom_model
 
-#1. Load input data and list L of combinations of hyperparameters
-
+#1. Load input data
 data = dt_handler.read_dataset('input_data.csv')
-
-
+#2. Load list of hyperparameter combinations
 engine_interface.add_blocks_to_queue('hyperparameter_values.json')
 
 model = Sequential()
@@ -20,7 +18,3 @@ grid = GridSearchCV(estimator=model, param_grid=param_grid, n_jobs=n_jobs, scori
 
 for x in queue:
 	grid_result = grid.fit(X, y)
-
-#2.1 fit the model
-#2.2 generate model performance (accuracy por exemplo)
-#2.3 if accuracy > threshold OR if user requests, stop the loop

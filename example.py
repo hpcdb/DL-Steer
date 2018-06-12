@@ -21,6 +21,6 @@ grid = GridSearchCV(estimator=model, param_grid=param_grid, n_jobs=n_jobs, scori
 for x in queue:
 	grid_result = grid.fit(X, y)
 
-#2.1 fit the model --> este é o que eu tinha chamado de "actual training", mas é ruim chamar assim. Model fitting é mais claro. Essa é a parte computacional mais custosa e é onde acontece o parelismo via tensorflow etc
+#2.1 fit the model
 #2.2 generate model performance (accuracy por exemplo)
 #2.3 if accuracy > threshold OR if user requests, stop the loop

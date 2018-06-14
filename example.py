@@ -14,7 +14,7 @@ X, y = data['X'], data['y']
 queue = coordinator.get_queue()
 for hyperparameter_combination in queue:
     provenance.persist(hyperparameter_combination)
-    grid = GridSearchCV(estimator=model, param_grid=grid_search_param_grid, n_jobs=-1, scoring="accuracy")
+    grid = GridSearchCV(estimator=model, param_grid=hyperparameter_combination, n_jobs=-1, scoring="accuracy")
     grid_result = grid.fit(X, y)
     provenance.persist(grid_result)
     #The method below verifies if user steered the queue. If yes, it reloads the queue accordingly.
